@@ -18,7 +18,7 @@ function stringToHash(string) {
 var ts=Date.now();
         
 var arr = {first_name:'Kristjan', last_name:"Robam", email: "theonewhoknowshow@outlook.com", 
-          bio: "Am a good programmer", technologies: "php, html, js", timestamp: Date.now(), signature: stringToHash(ts.concat("credy"))};
+          bio: "Am a good programmer", technologies: "php, html, js", timestamp: ts, signature: stringToHash(ts.concat("credy"))};
 $.ajax(
    {
         url: "https://cv.microservices.credy.com/v1",
