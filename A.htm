@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>        
+<body>
+<script>  
+function stringToHash(string) {
+    var hash = 0;
+    if (string.length == 0) return hash;
+    for (i = 0; i < string.length; i++) {
+        char = string.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+    }
+    return hash;
+}
+           
+var ts=Date.now();
+        
+var arr = {first_name:'Kristjan', last_name:"Robam", email: "theonewhoknowshow@outlook.com", 
+          bio: "Am a good programmer", technologies: "php, html, js", timestamp: Date.now(), signature: stringToHash(ts.concat("credy"))};
+$.ajax(
+   {
+        url: "https://cv.microservices.credy.com/v1",
+        type: "POST",
+        data: arr,
+        dataType: 'json',
+        async: false,
+        success: function(msg) {
+            alert(msg);
+        }
+    }
+);
+        
+</script>
+        
+</body>      
+</html>
